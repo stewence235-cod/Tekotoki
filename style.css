@@ -1,0 +1,165 @@
+/* FONT & RESET */
+body {
+    margin: 0;
+    font-family: Poppins, sans-serif;
+    transition: 0.4s;
+    background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+    color: white;
+}
+
+/* LIGHT MODE */
+body.light {
+    background: #f2f2f2;
+    color: #111;
+}
+
+/* LOADING SCREEN */
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 9999;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top-color: cyan;
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* NAVBAR */
+header {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header.scrolled {
+    box-shadow: 0 0 15px cyan;
+}
+
+nav a {
+    margin: 0 10px;
+    color: cyan;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-shadow: 0 0 10px cyan;
+}
+
+/* CARD GLASS */
+.card {
+    margin: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    animation: fadeUp 0.9s ease;
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Untuk semua gambar */
+.gallery img {
+  width: 100%;
+  height: 200px;        /* Untuk portrait */
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #fff;
+  transition: 0.3s;
+}
+
+/* Jika gambarnya LANDSCAPE (lebar lebih besar daripada tinggi) */
+.gallery img:where([width > height]), 
+.gallery img:not([height > width]) {
+  height: auto;
+  max-height: 150px;   /* Biar landscape tidak kepotong */
+  object-fit: contain; /* Landscape tampil FULL */
+  background: #000;    /* Opsional agar rapi */
+}
+
+/* FORM */
+input, textarea {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: cyan;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* POPUP */
+#popup {
+    position: fixed;
+    bottom: 20px;
+    right: -300px;
+    background: cyan;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    transition: 0.4s;
+}
+
+#popup.show {
+    right: 20px;
+}
+
+/* SCROLL TOP BUTTON */
+#scrollTop {
+    position: fixed;
+    bottom: 25px;
+    left: 25px;
+    padding: 15px;
+    border: none;
+    border-radius: 50%;
+    background: cyan;
+    display: none;
+    cursor: pointer;
+}
+
+/* FOOTER */
+footer {
+    padding: 20px;
+    text-align: center;
+    opacity: 0.7;
+}
